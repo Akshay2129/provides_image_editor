@@ -1,4 +1,8 @@
+import 'package:demoapp/conuter/counter.dart';
+import 'package:demoapp/image_editor/image_editor.dart';
+import 'package:demoapp/share/share.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,17 +15,51 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Center(
-            child: ElevatedButton(
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ElevatedButton(
               onPressed: () {
-                showCustomAlertDialog(context);
+                // showCustomAlertDialog(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Counter(),
+                    ));
               },
-              child: const Text("Show alert"),
+              child: const Text("Counter APP"),
             ),
-          ),
-        ],
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // showCustomAlertDialog(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ImageEditorExample(),
+                    ));
+              },
+              child: const Text("ImageEditorApp"),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // showCustomAlertDialog(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ShareApp(),
+                    ));
+              },
+              child: const Text("share"),
+            ),
+          ],
+        ),
       ),
     );
   }
